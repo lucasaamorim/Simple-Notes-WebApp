@@ -1,13 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 body {
+  height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+}
+.App {
+  height: 100vh;
+  display: flex;
+  flex-flow: row ;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/**    *****************************     **/
+/**      Sidebar component styling      **/
+/**    *****************************     **/
+
+.sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-shrink: 0;
+  width: 30vw;
+  border-right: 1px solid rgb(210, 210, 210);
+}
+/* Header Styling */
+.sidebar-header {
+  border-bottom: 1px solid rgb(210, 210, 210);
+  height: 90px;
+  display: flex;
+  justify-content: space-around;
+}
+.sidebar-title {
+  display: inline-flex;
+}
+.sidebar-add-note {
+  margin-right: 10px;
+  padding: 0 10px; 
+  display: inline-flex;
+  cursor: pointer;
+  color: rgb(0, 162, 255);
+  line-height: 60px;
+}
+p {
+  text-align: center;
+}
+
+/**    ******************************    **/
+/**        Main component styling        **/              
+/**    ******************************    **/
+
+.main {
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Form Styling */
+.note-form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#note {
+  margin: 15px auto;
+  padding: 6px 2px;
+  width: 80%;
+  font-size: 18px;
+}
+.note-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.title-input-container {
+  width: 100%;
+  top: 5px;
+  display: flex;
+  justify-content: center;
+}
+.title-input {
+  width: 80%;
+  margin: 10px auto; 
+  padding: 6px 1px;
 }
