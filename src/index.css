@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 body {
   height: 100vh;
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
+
 .App {
   height: 100vh;
   display: flex;
-  flex-flow: row ;
+  flex-flow: row;
 }
 
 /**    *****************************     **/
@@ -30,23 +32,27 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
 .sidebar-title {
   user-select: none;
   display: inline-flex;
 }
+
 .sidebar-add-note {
   user-select: none;
   margin-right: 10px;
-  padding: 0 10px; 
+  padding: 0 10px;
   display: inline-flex;
   cursor: pointer;
   color: rgb(0, 150, 236);
   line-height: 60px;
 }
+
 .sidebar-add-note:hover {
   transition: 500ms cubic-bezier(1, 0, 0, 1);
   color: rgba(0, 150, 236, 0.7);
 }
+
 p {
   text-align: center;
   margin: 0;
@@ -57,40 +63,48 @@ p {
   animation-name: hide;
   animation-play-state: running;
 }
+
 .note {
   cursor: pointer;
-  transition: .25s cubic-bezier(.25,.1,.25,1);
+  transition: .25s cubic-bezier(.25, .1, .25, 1);
   margin: 0;
   padding: 5px 0;
 }
+
 .active {
   background-color: rgba(128, 128, 128, 0.2)
 }
+
 .note:hover {
   background-color: rgba(128, 128, 128, 0.2)
 }
+
 .note-main {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 100%;
   margin: 10px 0;
 }
+
 .note-title {
   float: left;
   margin: 0 15px;
   display: inline-flex;
 }
+
 .note-delete {
   user-select: none;
   cursor: pointer;
-  margin: 0 15px; 
+  margin: 0 15px;
   color: red;
   display: inline-flex;
 }
+
 .note-delete p {
   width: 100%;
   text-align: right;
 }
+
 .last-edited {
   word-spacing: 5px;
   display: block;
@@ -98,7 +112,7 @@ p {
 }
 
 /**    ******************************    **/
-/**        Main component styling        **/              
+/**        Main component styling        **/
 /**    ******************************    **/
 
 .main {
@@ -110,23 +124,26 @@ p {
 
 /*Add/Edit Note Form Styling */
 
-.note-form{
+.note-form {
   height: 50vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+
 #note {
-  font-family: 'Poppins' Arial, sans-serif !important;
+  font-family: 'Poppins'Arial, sans-serif !important;
   margin: 15px auto;
   padding: 6px 2px;
   width: 80%;
   height: 40vh;
   font-size: 18px;
 }
+
 #note:focus {
   border: 2px solid rgb(30, 128, 255);
 }
+
 .note-container {
   display: flex;
   justify-content: center;
@@ -139,15 +156,17 @@ p {
   display: flex;
   justify-content: center;
 }
+
 .title-input {
   width: 80%;
-  margin: 10px auto; 
+  margin: 10px auto;
   padding: 6px 1px;
 }
 
 /*Markdown Preview Styling*/
 
 .markdown-preview {
+  display: flex;
   height: 50vh;
   background-color: rgba(128, 128, 128, 0.15)
 }
