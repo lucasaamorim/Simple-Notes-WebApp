@@ -21,7 +21,9 @@ body {
   width: 30vw;
   border-right: 1px solid rgb(210, 210, 210);
 }
+
 /* Header Styling */
+
 .sidebar-header {
   border-bottom: 1px solid rgb(210, 210, 210);
   height: 90px;
@@ -29,17 +31,69 @@ body {
   justify-content: space-around;
 }
 .sidebar-title {
+  user-select: none;
   display: inline-flex;
 }
 .sidebar-add-note {
+  user-select: none;
   margin-right: 10px;
   padding: 0 10px; 
   display: inline-flex;
   cursor: pointer;
-  color: rgb(0, 162, 255);
+  color: rgb(0, 150, 236);
   line-height: 60px;
 }
+.sidebar-add-note:hover {
+  transition: 500ms cubic-bezier(1, 0, 0, 1);
+  color: rgba(0, 150, 236, 0.7);
+}
 p {
+  text-align: center;
+  margin: 0;
+}
+
+/*Note List Styling*/
+.hide {
+  animation-name: hide;
+  animation-play-state: running;
+}
+.note {
+  cursor: pointer;
+  transition: .25s cubic-bezier(.25,.1,.25,1);
+  margin: 0;
+  padding: 5px 0;
+}
+.active {
+  background-color: rgba(128, 128, 128, 0.2)
+}
+.note:hover {
+  background-color: rgba(128, 128, 128, 0.2)
+}
+.note-main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  margin: 10px 0;
+}
+.note-title {
+  float: left;
+  margin: 0 15px;
+  display: inline-flex;
+}
+.note-delete {
+  user-select: none;
+  cursor: pointer;
+  margin: 0 15px; 
+  color: red;
+  display: inline-flex;
+}
+.note-delete p {
+  width: 100%;
+  text-align: right;
+}
+.last-edited {
+  word-spacing: 5px;
+  display: block;
   text-align: center;
 }
 
@@ -53,23 +107,32 @@ p {
   display: flex;
   flex-direction: column;
 }
-/* Form Styling */
+
+/*Add/Edit Note Form Styling */
+
 .note-form{
+  height: 50vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 #note {
+  font-family: 'Poppins' Arial, sans-serif !important;
   margin: 15px auto;
   padding: 6px 2px;
   width: 80%;
+  height: 40vh;
   font-size: 18px;
+}
+#note:focus {
+  border: 2px solid rgb(30, 128, 255);
 }
 .note-container {
   display: flex;
   justify-content: center;
   width: 100%;
 }
+
 .title-input-container {
   width: 100%;
   top: 5px;
@@ -80,4 +143,11 @@ p {
   width: 80%;
   margin: 10px auto; 
   padding: 6px 1px;
+}
+
+/*Markdown Preview Styling*/
+
+.markdown-preview {
+  height: 50vh;
+  background-color: rgba(128, 128, 128, 0.15)
 }
