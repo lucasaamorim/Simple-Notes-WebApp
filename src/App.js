@@ -32,15 +32,21 @@ function App() {
 
   const onEdit = (e, edit_type) => {
     const editedNote = {
-      id : activeNote,
-      title: edit_type === "title" ? e.target.value : notes.find((note) => note.id === activeNote).title,
-      content: edit_type === "content" ? e.target.value : notes.find((note) => note.id === activeNote).content,
+      id: activeNote,
+      title:
+        edit_type === "title"
+          ? e.target.value
+          : notes.find((note) => note.id === activeNote).title,
+      content:
+        edit_type === "content"
+          ? e.target.value
+          : notes.find((note) => note.id === activeNote).content,
       edited: Date.now(),
-    }
-    SetNote([editedNote, ...notes.filter(note => note.id !== activeNote)])
-   }
+    };
+    SetNote([editedNote, ...notes.filter((note) => note.id !== activeNote)]);
+  };
 
-return (
+  return (
     <div className="App">
       <Sidebar
         notes={notes}
