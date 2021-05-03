@@ -1,13 +1,21 @@
 import TextareaAutosize from "react-textarea-autosize";
 
-const Main = ({ activeNote, notes, onEdit }) => {
-  const activeNoteInfo = notes.find((note) => note.id === activeNote);
+//markdown support
+import sanitizeHtml from "sanitize-html";
+import marked from "marked";
+import ReactHtmlParser from 'react-html-parser'
 
+const Main = ({ activeNoteInfo, activeNote, onEdit }) => {
+  const marked_options = {
+    breaks: true,
+    headerIds: false,
+  };
   return (
     <div className="main">
       <div className="note-form">
         <div className="title-input-container">
           <input
+            disabled={activeNote ? false : true}
             type="text"
             name="title"
             className="title-input"
@@ -19,6 +27,7 @@ const Main = ({ activeNote, notes, onEdit }) => {
         </div>
         <div className="note-container">
           <TextareaAutosize
+            disabled={activeNote ? false : true}
             name="content"
             autoFocus
             id="note"
@@ -33,15 +42,21 @@ const Main = ({ activeNote, notes, onEdit }) => {
       <div className="markdown-preview">
         <div className="title-container">
           <h1 className="title">
-            {" "}
-            {activeNote ? activeNoteInfo.title : "Untitled"}{" "}
+            {activeNote
+              ? activeNoteInfo
+                ? activeNoteInfo.title
+                : "Please Select a Note"
+              : "Please Select a Note"}
           </h1>
         </div>
-        <div className="body-container">
-          <p className="body">
-            {activeNote ? activeNoteInfo.content : "Untitled"}
-          </p>
-        </div>
+        <div
+          className="body-container"
+        ></div>
+          {
+            activeNote &&
+            activeNoteInfo &&
+            ReactHtmlParser(sanitizeHtml(marked(String(activeNoteInfo.content))))
+          }
       </div>
     </div>
   );

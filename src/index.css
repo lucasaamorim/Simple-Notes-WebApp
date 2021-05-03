@@ -166,7 +166,8 @@ p {
 /*Markdown Preview Styling*/
 
 .markdown-preview {
-  display: flex;
+  display: grid;
+  /* grid-template-rows: ; */
   height: 50vh;
   background-color: rgba(128, 128, 128, 0.15)
 }

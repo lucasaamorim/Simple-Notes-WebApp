@@ -6,45 +6,53 @@ import Main from "./components/Main";
 function App() {
   const [notes, SetNote] = useState([]);
   const [activeNote, setActiveNote] = useState(false);
+  
+  const notes_is_empty = notes.length === [];
+
+
   const onAddNote = () => {
     const newNote = {
       id: uuid(),
       title: "Untitled Note",
-      content: "this is a test to see if the activeNote Hook works",
+      content: "",
       edited: Date.now(),
     };
     SetNote([newNote, ...notes]);
   };
 
+
   const toggleActiveNote = (target_id) => {
-    setActiveNote(activeNote === target_id ? false : target_id);
-    if (notes.find((note) => note.id === target_id)) {
-      //pass
-    } else {
-      setActiveNote(false);
-    }
+      setActiveNote(activeNote === target_id ? false : target_id);
   };
+
 
   const onDelete = (target_id) => {
     SetNote(notes.filter((note) => note.id !== target_id));
   };
-  // On the Making (yet).
+
 
   const onEdit = (e, edit_type) => {
+    const activeNoteInfo = notes.find((note) => note.id === activeNote);
     const editedNote = {
       id: activeNote,
-      title:
-        edit_type === "title"
-          ? e.target.value
-          : notes.find((note) => note.id === activeNote).title,
-      content:
-        edit_type === "content"
-          ? e.target.value
-          : notes.find((note) => note.id === activeNote).content,
+      title: [
+        edit_type === "title" ? e.target.value : activeNoteInfo.title ],
+      content: [
+        edit_type === "content" ? e.target.value : activeNoteInfo.content ],
       edited: Date.now(),
     };
     SetNote([editedNote, ...notes.filter((note) => note.id !== activeNote)]);
   };
+
+  const getActiveNote = () => {
+    const activeNoteInfo = notes.find((note) => note.id === activeNote);
+    if (activeNote === false) {
+      //pass
+    }else if (typeof activeNoteInfo === 'undefined') {
+      setActiveNote(false);
+    }else { return(activeNoteInfo); }
+    }
+
 
   return (
     <div className="App">
@@ -55,8 +63,9 @@ function App() {
         activeNote={activeNote}
         setActiveNote={setActiveNote}
         onToggle={toggleActiveNote}
+        empty={notes_is_empty}
       />
-      <Main notes={notes} activeNote={activeNote} onEdit={onEdit} />
+      <Main activeNoteInfo={getActiveNote()} activeNote={activeNote} onEdit={onEdit}/>
     </div>
   );
 }

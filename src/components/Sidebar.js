@@ -7,6 +7,7 @@ const Sidebar = ({
   activeNote,
   setActiveNote,
   onToggle,
+  empty,
 }) => {
   return (
     <div className="sidebar">
@@ -16,8 +17,7 @@ const Sidebar = ({
           <p onClick={onAddNote}>Add</p>
         </div>
       </div>
-      {notes ? (
-        notes.map((note) => {
+      { !(empty) && (notes.map((note) => {
           return (
             <Note
               note={note}
@@ -28,9 +28,8 @@ const Sidebar = ({
             />
           );
         })
-      ) : (
-        <p>No Notes, Please Create One.</p>
       )}
+      {empty && <h1>No notes, please create one</h1>}
     </div>
   );
 };
