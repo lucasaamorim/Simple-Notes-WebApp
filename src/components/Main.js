@@ -51,12 +51,13 @@ const Main = ({ activeNoteInfo, activeNote, onEdit }) => {
         </div>
         <div
           className="body-container"
-        ></div>
+        >
           {
             activeNote &&
             activeNoteInfo &&
-            ReactHtmlParser(sanitizeHtml(marked(String(activeNoteInfo.content))))
+            ReactHtmlParser(sanitizeHtml(marked(String(activeNoteInfo.content), marked_options)))
           }
+        </div>
       </div>
     </div>
   );

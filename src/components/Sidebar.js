@@ -20,6 +20,7 @@ const Sidebar = ({
       { !(empty) && (notes.map((note) => {
           return (
             <Note
+              key={note.id}
               note={note}
               onDelete={onDelete}
               setActiveNote={setActiveNote}

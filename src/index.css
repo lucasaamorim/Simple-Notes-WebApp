@@ -22,6 +22,7 @@ body {
   flex-shrink: 0;
   width: 30vw;
   border-right: 1px solid rgb(210, 210, 210);
+  overflow-y: scroll;
 }
 
 /* Header Styling */
@@ -166,8 +167,9 @@ p {
 /*Markdown Preview Styling*/
 
 .markdown-preview {
+  overflow-y: scroll;
   display: grid;
-  /* grid-template-rows: ; */
+  grid-template-rows: 20%, 80%;
   height: 50vh;
   background-color: rgba(128, 128, 128, 0.15)
 }
