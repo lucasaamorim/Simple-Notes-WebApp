@@ -133,7 +133,8 @@ p {
 }
 
 #note {
-  font-family: 'Poppins'Arial, sans-serif !important;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif !important;
   margin: 15px auto;
   padding: 6px 2px;
   width: 80%;
@@ -169,7 +170,7 @@ p {
 .markdown-preview {
   overflow-y: scroll;
   display: grid;
-  grid-template-rows: 20%, 80%;
+  grid-template-rows: 10vh 40vh;
   height: 50vh;
   background-color: rgba(128, 128, 128, 0.15)
 }
