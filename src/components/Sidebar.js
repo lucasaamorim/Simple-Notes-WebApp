@@ -1,5 +1,5 @@
 import Note from "./Note";
-// Formated with Prettier
+
 const Sidebar = ({
   notes,
   onAddNote,

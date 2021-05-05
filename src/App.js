@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import uuid from "react-uuid";
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
 
 function App() {
-  const [notes, SetNote] = useState([]);
+  const [notes, SetNote] = useState(localStorage.getItem('notes') ? JSON.parse(localStorage.getItem('notes')) : []);
   const [activeNote, setActiveNote] = useState(false);
   
-  const notes_is_empty = notes.length === [];
+  const notes_is_empty = (notes === []);
+
+ if (notes_is_empty) {
+   localStorage.setItem('notes', notes)
+ }
 
 
   const onAddNote = () => {
@@ -19,6 +23,10 @@ function App() {
     };
     SetNote([newNote, ...notes]);
   };
+
+  useEffect(() => {
+      localStorage.setItem('notes', JSON.stringify(notes))
+  })
 
 
   const toggleActiveNote = (target_id) => {
